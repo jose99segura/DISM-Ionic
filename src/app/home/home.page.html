@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Inicio
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,52 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Inicio</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <!-- Identificador de ususarios -->
+    <ion-item>
+      <ion-label position="floating">Identificador</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+    <!-- Fecha -->
+    <ion-item>
+      <ion-label position="stacked">Fecha nacimiento</ion-label>
+      <ion-input type="date"></ion-input>
+    </ion-item>
+
+    <!-- Tiempo -->
+    <ion-item>
+      <ion-label position="stacked">Tiempo</ion-label>
+      <ion-input type="time"></ion-input>
+    </ion-item>
+
+    <!-- Descripcion -->
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-input type="string"></ion-input>
+    </ion-item>
+
+    <!-- Incidencia -->
+    <ion-item>
+      <ion-label position="stacked">Incidencia resuelta</ion-label>
+      <ion-input type="boolean"></ion-input>
+    </ion-item>
+
+    <!-- Tiempo dedicado -->
+    <ion-item>
+      <ion-label position="floating">Tiempo dedicado</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+    <!-- Geolocalización -->
+    <ion-item>
+      <ion-label position="floating">Geolocalización</ion-label>
+      <ion-input type="string"></ion-input>
+    </ion-item>
+
   </div>
 </ion-content>
