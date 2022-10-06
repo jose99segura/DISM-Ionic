@@ -1,3 +1,64 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-list>
+        <ion-menu-toggle auto-hide="false">
+          <!-- 1º Item -->
+          <ion-item [routerDirection]="'root'" [routerLink]="'/home'">
+            <ion-icon slot="start" [name]="'home'"></ion-icon>
+            <ion-label>
+              Inicio
+            </ion-label>
+          </ion-item>
+
+          <!-- 2º Item -->
+          <ion-item [routerDirection]="'root'" [routerLink]="'/home'">
+            <ion-icon slot="start" name="list-outline"></ion-icon>
+            <ion-label>
+              ListadoPartes
+            </ion-label>
+          </ion-item>
+
+          <!-- 3º Item -->
+          <ion-item [routerDirection]="'root'" [routerLink]="'/home'">
+            <ion-icon slot="start" name="create-outline"></ion-icon>
+            <ion-label>
+              Gestion
+            </ion-label>
+          </ion-item>
+
+          <!-- 4º Item -->
+          <ion-item [routerDirection]="'root'" [routerLink]="'/home'">
+            <ion-icon slot="start" name="call-outline"></ion-icon>
+            <ion-label>
+              Contacto
+            </ion-label>
+          </ion-item>
+          
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+
+      <!-- Aqui va el resto del contenido del router outlet -->
+      <ion-router-outlet></ion-router-outlet>
+      
+    </ion-content>
+  </div>
+  
 </ion-app>
