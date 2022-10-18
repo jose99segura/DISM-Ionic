@@ -14,59 +14,9 @@
   </ion-header>
 
   <div id="container">
-    <!-- Identificador de ususarios -->
-    <ion-item>
-      <ion-label position="floating">Identificador</ion-label>
-      <ion-input type="number"></ion-input>
-    </ion-item>
 
-    <!-- Fecha -->
-    <ion-item>
-      <ion-label position="stacked">Fecha nacimiento</ion-label>
-      <ion-input type="date"></ion-input>
-    </ion-item>
-
-    <!-- Tiempo -->
-    <ion-item>
-      <ion-label position="stacked">Tiempo</ion-label>
-      <ion-input type="time"></ion-input>
-    </ion-item>
-
-    <!-- Descripcion -->
-    <ion-item>
-      <ion-label position="floating">Descripción</ion-label>
-      <ion-input type="string"></ion-input>
-    </ion-item>
-
-    <!-- Incidencia -->
-    <ion-item>
-      <ion-label position="stacked">Incidencia resuelta</ion-label>
-      <ion-input type="boolean"></ion-input>
-    </ion-item>
-
-    <!-- Tiempo dedicado -->
-    <ion-item>
-      <ion-label position="floating">Tiempo dedicado</ion-label>
-      <ion-input type="number"></ion-input>
-    </ion-item>
-
-    <!-- Geolocalización Latitud-->
-    <ion-item>
-      <ion-label position="stacked">Latitud</ion-label>
-      <ion-input></ion-input>
-
-      <ion-label position="stacked">Longitud</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-
-    <!-- Geolocalización Longitud-->
-    <!-- <ion-item>
-      <ion-label position="floating">Longitud</ion-label>
-      <ion-input type="string"></ion-input>
-    </ion-item> -->
-
-    <!-- Boton añadir -->
-    <ion-button (click)="nuevoRegistro()" expand="block">Añadir</ion-button>
+    <ion-button [routerLink]="['/nuevo-parte']" expand="block">Añadir Parte</ion-button>
+    <ion-button [routerLink]="['/nuevo-cliente']" expand="block">Añadir Cliente</ion-button>
 
   </div>
 </ion-content>

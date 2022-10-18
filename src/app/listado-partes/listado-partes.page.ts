@@ -30,13 +30,13 @@ export class ListadoPartesPage {
     });
   }
 
-  // editar(item){
-  //   let navigationExtras: NavigationExtras = {
-  //     state: {
-  //       usuario: item
-  //     }
-  //   };
-  //   this.router.navigate(['editar'], navigationExtras);
-  // }
+  editar(item){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        usuario: item
+      }
+    };
+    // this.router.navigate(['editar'], navigationExtras);
+  }
 
 }

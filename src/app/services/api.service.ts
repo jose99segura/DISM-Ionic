@@ -10,7 +10,7 @@ import { Parte } from '../models/parte';
 export class ApiService {
 
   //API path
-  public base_path = 'http://localhost:3000/usuarios';
+  public base_path = 'http://localhost:3000/partes';
 
   public httpOptions = {
     headers: new HttpHeaders({

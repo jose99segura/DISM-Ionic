@@ -9,13 +9,4 @@ export class HomePage {
 
   constructor() {}
 
-
-  nuevoRegistro(){
-    console.log('hola');
-
-    // this.apiService.createItem(this.data).subscribe((response) => {
-    //   this.router.navigate(['home']);
-    // });
-  }
-
 }

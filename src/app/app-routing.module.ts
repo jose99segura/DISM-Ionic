@@ -24,8 +24,12 @@ const routes: Routes = [
     loadChildren: () => import('./contacto/contacto.module').then( m => m.ContactoPageModule)
   },
   {
-    path: 'nuevo',
-    loadChildren: () => import('./nuevo/nuevo.module').then( m => m.NuevoPageModule)
+    path: 'nuevo-parte',
+    loadChildren: () => import('./nuevo-parte/nuevo-parte.module').then( m => m.NuevoPartePageModule)
+  },
+  {
+    path: 'nuevo-cliente',
+    loadChildren: () => import('./nuevo-cliente/nuevo-cliente.module').then( m => m.NuevoClientePageModule)
   },
 ];
 
