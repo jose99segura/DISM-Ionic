@@ -31,6 +31,14 @@ const routes: Routes = [
     path: 'nuevo-cliente',
     loadChildren: () => import('./nuevo-cliente/nuevo-cliente.module').then( m => m.NuevoClientePageModule)
   },
+  {
+    path: 'editar-parte',
+    loadChildren: () => import('./editar-parte/editar-parte.module').then( m => m.EditarPartePageModule)
+  },
+  {
+    path: 'editar-cliente',
+    loadChildren: () => import('./editar-cliente/editar-cliente.module').then( m => m.EditarClientePageModule)
+  },
 ];
 
 @NgModule({

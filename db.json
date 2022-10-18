@@ -1,9 +1,14 @@
 {
   "partes": [
     {
-      "id": "1",
-      "descripcion": "JoseL",
-      "tiempo": "12"
+      "id": 1,
+      "fecha": "2022-10-25",
+      "hora": "16:12",
+      "descripcion": "Parte1",
+      "incidencia": false,
+      "tiempo": 1,
+      "latitud": "34",
+      "longitud": "23"
     }
   ]
 }

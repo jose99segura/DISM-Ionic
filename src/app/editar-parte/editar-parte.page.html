@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>nuevo Parte</ion-title>
+    <ion-title>editar Parte</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -64,7 +64,8 @@
     </ion-item> -->
 
     <!-- Boton añadir -->
-    <ion-button (click)="nuevoParte()" expand="block">nuevo Parte</ion-button>
+    <!-- <ion-button (click)="nuevoParte()" expand="block">nuevo Parte</ion-button> -->
+    <ion-button (click)="update()" color="success" expand="block">Actualizar</ion-button>
     <ion-button [routerLink]="[ '/listado-partes' ]" color="warning" expand="block">Cancelar</ion-button>
 
   </div>

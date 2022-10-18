@@ -36,7 +36,7 @@ export class ListadoPartesPage {
         usuario: item
       }
     };
-    // this.router.navigate(['editar'], navigationExtras);
+    this.router.navigate(['editar-parte'], navigationExtras);
   }
 
 }
