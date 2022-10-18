@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Cliente } from '../models/cliente';
+import { Parte } from '../models/parte';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-nuevo-cliente',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NuevoClientePage implements OnInit {
 
-  constructor() { }
+  data: Cliente;
+
+  constructor(
+    public router: Router,
+    public apiService: ApiService
+    ) {
+      this.data = new Cliente();
+    }
 
   ngOnInit() {
+  }
+
+  nuevoCliente(){
+    // this.apiService.createItem(this.data).subscribe((response) => {
+    //   this.router.navigate(['listado-partes']);
+    // });
   }
 
 }
