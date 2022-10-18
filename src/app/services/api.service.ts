@@ -10,7 +10,8 @@ import { Parte } from '../models/parte';
 export class ApiService {
 
   //API path
-  public base_path = 'http://localhost:3000/partes';
+  public partes_path = 'http://localhost:3000/partes';
+  public clientes_path = 'http://localhost:3000/clientes';
 
   public httpOptions = {
     headers: new HttpHeaders({
@@ -26,14 +27,22 @@ export class ApiService {
       console.error('Ha ocurrido un error');
     }else{
       console.error('nose');
-
     }
     return throwError('Ha sucedido un problema');
   }
 
   createItem(item): Observable<Parte> {
     return this.http
-      .post<Parte>(this.base_path, JSON.stringify(item), this.httpOptions)
+      .post<Parte>(this.partes_path, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  createItemCliente(item): Observable<Parte> {
+    return this.http
+      .post<Parte>(this.clientes_path, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -42,7 +51,7 @@ export class ApiService {
 
   getItem(id): Observable<Parte> {
     return this.http
-      .get<Parte>(this.base_path + '/' + id)
+      .get<Parte>(this.partes_path + '/' + id)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -51,7 +60,7 @@ export class ApiService {
 
   getList(): Observable<Parte> {
     return this.http
-      .get<Parte>(this.base_path)
+      .get<Parte>(this.partes_path)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -60,7 +69,7 @@ export class ApiService {
 
   updateItem(id, item): Observable<Parte> {
     return this.http
-      .put<Parte>(this.base_path + '/' + id, JSON.stringify(item), this.httpOptions)
+      .put<Parte>(this.partes_path + '/' + id, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -69,7 +78,7 @@ export class ApiService {
 
   deleteItem(id): Observable<Parte> {
     return this.http
-      .delete<Parte>(this.base_path + '/' + id, this.httpOptions)
+      .delete<Parte>(this.partes_path + '/' + id, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

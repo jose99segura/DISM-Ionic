@@ -24,9 +24,9 @@ export class NuevoClientePage implements OnInit {
   }
 
   nuevoCliente(){
-    // this.apiService.createItem(this.data).subscribe((response) => {
-    //   this.router.navigate(['listado-partes']);
-    // });
+    this.apiService.createItemCliente(this.data).subscribe((response) => {
+      this.router.navigate(['listado-clientes']);
+    });
   }
 
 }
