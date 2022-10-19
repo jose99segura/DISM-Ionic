@@ -26,7 +26,7 @@ export class ApiService {
     if (error.error instanceof ErrorEvent) {
       console.error('Ha ocurrido un error');
     }else{
-      console.error('nose');
+      console.error('Problem');
     }
     return throwError('Ha sucedido un problema');
   }

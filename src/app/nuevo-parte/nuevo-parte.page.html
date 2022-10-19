@@ -8,10 +8,10 @@
 
   <div id="container">
     <!-- Identificador de ususarios -->
-    <ion-item>
+    <!-- <ion-item>
       <ion-label position="floating">Identificador</ion-label>
       <ion-input type="number" [(ngModel)]="data.id"></ion-input>
-    </ion-item>
+    </ion-item> -->
 
     <!-- Fecha -->
     <ion-item>
@@ -44,19 +44,18 @@
     </ion-item>
 
     <!-- Geolocalización Latitud-->
+    <div class="ion-padding">
+      <ion-button (click)="getCurrentCoordinates()" color="secondary" expand="block">Obtener Geolocalización</ion-button>
+    </div>
     <ion-item>
       <ion-label position="stacked">Latitud</ion-label>
-      <ion-input [(ngModel)]="data.latitud"></ion-input>
-
+      <ion-input [(ngModel)]="data.latitud">{{latitude}}</ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label position="stacked">Longitud</ion-label>
-      <ion-input [(ngModel)]="data.longitud"></ion-input>
+      <ion-input [(ngModel)]="data.longitud">{{longitude}}</ion-input>
     </ion-item>
 
-    <!-- Geolocalización Longitud-->
-    <!-- <ion-item>
-      <ion-label position="floating">Longitud</ion-label>
-      <ion-input type="string"></ion-input>
-    </ion-item> -->
 
     <!-- Boton añadir -->
     <ion-button (click)="nuevoParte()" expand="block">nuevo Parte</ion-button>
