@@ -1,0 +1,88 @@
+
+openapi: 3.0.0
+servers:
+  # Comentario
+  - description: API Practica 1
+    url: https://petstore3.swagger.io/api/v3
+  - description: Servidor DTIC
+    url: https://dtic.org/HolaMundo/1.0.0
+  - description: Servidor localhost
+    url: http://localhost:3000/
+info:
+  title: Hola Mundo
+  description: Esto es el backend de la practica 1
+  version: "1.0.0"
+  contact:
+    email: jlsn5@alu.ua.es
+paths:
+  /clientes:
+    get:
+      tags:
+        - GET CLIENTE
+      description: get cliente
+      parameters:
+      - in: query
+        name: id
+        description: hacer get cliente
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nombre:
+                    type: string
+                  contador:
+                    type: integer
+
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+    post:
+      tags:
+        - pet
+      summary: Add a new pet to the store
+      description: Add a new pet to the store
+      operationId: addPet
+      requestBody:
+        description: Create a new pet in the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Pet'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        '405':
+          description: Invalid input
+      security:
+        - petstore_auth:
+            - write:pets
+            - read:pets
+  /pet/findByStatus:
