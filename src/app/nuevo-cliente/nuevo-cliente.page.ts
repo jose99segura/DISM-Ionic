@@ -25,7 +25,7 @@ export class NuevoClientePage implements OnInit {
 
   nuevoCliente(){
     this.apiService.createItemCliente(this.data).subscribe((response) => {
-      this.router.navigate(['listado-clientes']);
+      this.router.navigate(['gestion-clientes']);
     });
   }
 

@@ -4,6 +4,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let cliente of ClienteData">
+      <ion-label>
+        <h2>{{cliente.nombre}}</h2>
+        <p>{{cliente.email}}</p>
 
+      </ion-label>
+      <ion-button (click)="editar(cliente)" color="warning" size="small"> <ion-icon name="create"></ion-icon> </ion-button>
+      <ion-button (click)="delete(cliente)" color="danger" size="small"> <ion-icon name="trash-outline"></ion-icon> </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-button [routerLink]="['/nuevo-cliente']" expand="block">Nuevo cliente</ion-button>
+  <ion-button [routerLink]="[ '/home' ]" color="warning" expand="block">Volver</ion-button>
 </ion-content>

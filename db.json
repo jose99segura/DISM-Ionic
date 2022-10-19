@@ -10,5 +10,26 @@
       "latitud": "34",
       "longitud": "23"
     }
+  ],
+  "clientes": [
+    {
+      "id": "1",
+      "nombre": "Jose",
+      "direccion": "",
+      "email": "a@gmail.com"
+    },
+    {
+      "nombre": "jose",
+      "id": "s1Em2o7"
+    },
+    {
+      "id": 3,
+      "nombre": "maelan",
+      "dni": "232323",
+      "direccion": "calle p",
+      "poblacion": "nov",
+      "telefono": "3434343",
+      "email": "mae@gmail.com"
+    }
   ]
 }

@@ -16,8 +16,9 @@
 
       </ion-label>
       <ion-button (click)="editar(item)" color="warning" size="small"> <ion-icon name="create"></ion-icon> </ion-button>
-      <ion-button (click)="delete(item)" color="danger" size="small"> <ion-icon name="thrash"></ion-icon> </ion-button>
+      <ion-button (click)="delete(item)" color="danger" size="small"> <ion-icon name="trash-outline"></ion-icon> </ion-button>
     </ion-item>
   </ion-list>
   <ion-button [routerLink]="['/nuevo-parte']" expand="block">Nuevo Parte</ion-button>
+  <ion-button [routerLink]="[ '/home' ]" color="warning" expand="block">Volver</ion-button>
 </ion-content>

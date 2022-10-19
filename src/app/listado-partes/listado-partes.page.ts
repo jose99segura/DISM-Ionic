@@ -10,6 +10,7 @@ import { ApiService } from '../services/api.service';
 export class ListadoPartesPage {
 
   ParteData: any;
+
   constructor( public apiService: ApiService, private router: Router ) {
     this.ParteData = [];
   }

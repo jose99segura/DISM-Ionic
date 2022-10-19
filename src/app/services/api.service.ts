@@ -67,6 +67,15 @@ export class ApiService {
       )
   }
 
+  getListCliente(): Observable<Parte> {
+    return this.http
+      .get<Parte>(this.clientes_path)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
   updateItem(id, item): Observable<Parte> {
     return this.http
       .put<Parte>(this.partes_path + '/' + id, JSON.stringify(item), this.httpOptions)
@@ -76,9 +85,27 @@ export class ApiService {
       )
   }
 
+  updateItemCliente(id, item): Observable<Parte> {
+    return this.http
+      .put<Parte>(this.clientes_path + '/' + id, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
   deleteItem(id): Observable<Parte> {
     return this.http
       .delete<Parte>(this.partes_path + '/' + id, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  deleteItemCliente(id): Observable<Parte> {
+    return this.http
+      .delete<Parte>(this.clientes_path + '/' + id, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
