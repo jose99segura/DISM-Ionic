@@ -15,6 +15,7 @@
         <p> {{item.longitud}}</p>
 
       </ion-label>
+      <ion-button (click)="ver(item)" color="secondary" size="small"> <ion-icon name="eye-outline"></ion-icon> </ion-button>
       <ion-button (click)="editar(item)" color="warning" size="small"> <ion-icon name="create"></ion-icon> </ion-button>
       <ion-button (click)="delete(item)" color="danger" size="small"> <ion-icon name="trash-outline"></ion-icon> </ion-button>
     </ion-item>

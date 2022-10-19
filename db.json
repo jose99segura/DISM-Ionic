@@ -4,7 +4,7 @@
       "id": 1,
       "fecha": "2022-10-25",
       "hora": "16:12",
-      "descripcion": "Parte1",
+      "descripcion": "Parte2",
       "incidencia": false,
       "tiempo": 1,
       "latitud": "34",
@@ -17,10 +17,6 @@
       "nombre": "Jose",
       "direccion": "",
       "email": "a@gmail.com"
-    },
-    {
-      "nombre": "jose",
-      "id": "s1Em2o7"
     },
     {
       "id": 3,

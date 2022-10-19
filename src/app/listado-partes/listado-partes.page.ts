@@ -19,6 +19,15 @@ export class ListadoPartesPage {
     this.getAllPartes();
   }
 
+  ver(item){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        usuario: item
+      }
+    };
+    this.router.navigate(['ver-partes'], navigationExtras);
+  }
+
   getAllPartes(){
     this.apiService.getList().subscribe(response =>{
       this.ParteData = response;
@@ -32,6 +41,7 @@ export class ListadoPartesPage {
   }
 
   editar(item){
+
     let navigationExtras: NavigationExtras = {
       state: {
         usuario: item

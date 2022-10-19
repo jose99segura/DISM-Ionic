@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ver Cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <!-- Identificador de ususarios -->
+    <ion-item>
+      <ion-label position="floating">Identificador</ion-label>
+      <ion-input disabled="true" type="number" [(ngModel)]="data.id"></ion-input>
+    </ion-item>
+
+    <!-- Nombre -->
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input disabled="true" type="string" [(ngModel)]="data.nombre"></ion-input>
+    </ion-item>
+
+    <!-- DNI -->
+    <ion-item>
+      <ion-label>DNI</ion-label>
+      <ion-input disabled="true" type="string" [(ngModel)]="data.dni"></ion-input>
+    </ion-item>
+
+    <!-- Dirección -->
+    <ion-item>
+      <ion-label>Dirección</ion-label>
+      <ion-input disabled="true" type="string" [(ngModel)]="data.direccion"></ion-input>
+    </ion-item>
+
+    <!-- poblacion -->
+    <ion-item>
+      <ion-label>Poblacion</ion-label>
+      <ion-input disabled="true" type="string" [(ngModel)]="data.poblacion"></ion-input>
+    </ion-item>
+
+    <!-- Telefono -->
+    <ion-item>
+      <ion-label>Teléfono</ion-label>
+      <ion-input disabled="true" type="string" [(ngModel)]="data.telefono"></ion-input>
+    </ion-item>
+
+    <!-- Dirección -->
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input disabled="true" type="Email" [(ngModel)]="data.email"></ion-input>
+    </ion-item>
+
+    <!-- Boton añadir -->
+    <ion-button (click)="editar(data)" expand="block">Editar</ion-button>
+    <ion-button [routerLink]="[ '/gestion-clientes' ]" color="warning" expand="block">Cancelar</ion-button>
+
+  </div>
+</ion-content>

@@ -19,6 +19,15 @@ export class GestionClientesPage {
     this.getAllPartes();
   }
 
+  ver(item){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        usuario: item
+      }
+    };
+    this.router.navigate(['ver-clientes'], navigationExtras);
+  }
+
   getAllPartes(){
     this.apiService.getListCliente().subscribe(response =>{
       this.ClienteData = response;

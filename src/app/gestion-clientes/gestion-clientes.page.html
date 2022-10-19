@@ -12,6 +12,7 @@
         <p>{{cliente.email}}</p>
 
       </ion-label>
+      <ion-button (click)="ver(cliente)" color="secondary" size="small"> <ion-icon name="eye-outline"></ion-icon> </ion-button>
       <ion-button (click)="editar(cliente)" color="warning" size="small"> <ion-icon name="create"></ion-icon> </ion-button>
       <ion-button (click)="delete(cliente)" color="danger" size="small"> <ion-icon name="trash-outline"></ion-icon> </ion-button>
     </ion-item>
