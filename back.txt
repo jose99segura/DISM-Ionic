@@ -22,7 +22,7 @@ paths:
   # GET
     get:
       tags:
-        - GET CLIENTE
+        - clientes
       description: get cliente
       parameters:
       - in: query
@@ -57,10 +57,10 @@ paths:
     # POST
     post:
       tags:
-        - POST CLIENTE
+        - clientes
       summary: Subir cliente
       description: 'Crear cliente'
-      operationId: updateClienteWithForm
+      operationId: postCliente
       requestBody:
         description: Crear nuevo cliente
         content:
@@ -76,12 +76,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Cliente'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Cliente'
-            application/x-www-form-urlencoded:
-              schema:
-                $ref: '#/components/schemas/Cliente'
         '405':
           description: Invalid input
 
@@ -91,7 +85,7 @@ paths:
     # PUT
     put:
       tags:
-        - UPDATE CLIENTE
+        - clientes
       summary: Update cliente
       description: Actualizar cliente
       operationId: updateCliente
@@ -109,12 +103,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Cliente'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Cliente'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Cliente'
       responses:
         default:
           description: successful operation
@@ -122,7 +110,7 @@ paths:
     # DELETE
     delete:
       tags:
-        - DELETE CLIENTE
+        - clientes
       summary: Borrar cliente
       description: Borra cliente por id
       operationId: deleteCliente
