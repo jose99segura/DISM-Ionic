@@ -46,23 +46,13 @@
   ],
   "clientes": [
     {
-      "id": "1",
-      "nombre": "Jose",
-      "direccion": "",
-      "email": "a@gmail.com"
-    },
-    {
-      "id": 3,
-      "nombre": "maelan dugue",
-      "dni": "232323",
-      "direccion": "calle p",
-      "poblacion": "nov",
-      "telefono": "3434343",
-      "email": "mae@gmail.com"
-    },
-    {
-      "nombre": "pepe",
-      "id": 4
+      "id": 1,
+      "nombre": "JoseMaquina",
+      "dni": "12345678A",
+      "direccion": "Calle Pizarro",
+      "poblacion": "Alicante",
+      "telefono": "123456789",
+      "email": "usuario@gmail.com"
     }
   ]
 }
