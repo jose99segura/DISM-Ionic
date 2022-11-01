@@ -17,12 +17,14 @@ info:
   contact:
     email: jlsn5@alu.ua.es
 paths:
-  /clientes:
 
-  # GET
+  #################### CLIENTES  ####################
+  /clientes:
+  # GET CLIENTE
     get:
       tags:
         - clientes
+      summary: Get cliente
       description: get cliente
       parameters:
       - in: query
@@ -54,7 +56,7 @@ paths:
                   message:
                     type: string
 
-    # POST
+    # POST CLIENTE
     post:
       tags:
         - clientes
@@ -79,10 +81,8 @@ paths:
         '405':
           description: Invalid input
 
-
   /clientes/{clienteId}:
-
-    # PUT
+    # PUT CLIENTE
     put:
       tags:
         - clientes
@@ -126,6 +126,114 @@ paths:
         '400':
           description: Invalid pet value
 
+  #################### PARTES  ####################
+  /partes:
+  # GET PARTE
+    get:
+      tags:
+        - partes
+      summary: Subir parte
+      description: get parte
+      parameters:
+      - in: query
+        name: id
+        description: hacer get parte
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nombre:
+                    type: string
+                  contador:
+                    type: integer
+
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+    # POST CLIENTE
+    post:
+      tags:
+        - partes
+      summary: Subir cliente
+      description: 'Crear cliente'
+      operationId: postParte
+      requestBody:
+        description: Crear nuevo cliente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Parte'
+
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parte'
+        '405':
+          description: Invalid input
+
+  /partes/{parteId}:
+    # PUT CLIENTE
+    put:
+      tags:
+        - partes
+      summary: Update cliente
+      description: Actualizar cliente
+      operationId: updateParte
+      parameters:
+        - name: parteId
+          in: path
+          description: Cliente para eliminar
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: actualiza cliente existente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+      responses:
+        default:
+          description: successful operation
+
+    # DELETE
+    delete:
+      tags:
+        - partes
+      summary: Borrar cliente
+      description: Borra cliente por id
+      operationId: deleteParte
+      parameters:
+        - name: parteId
+          in: path
+          description: Id de cliente a eliminar
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: Invalid pet value
+
 
 # COMPONENTES
 components:
@@ -155,4 +263,33 @@ components:
         email:
           type: string
           example: usuario@gmail.com
+
+    Parte:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        fecga:
+          type: string
+          example: 01/11/2022
+        hora:
+          type: string
+          example: 10:10
+        descripcion:
+          type: string
+          example: Descripcion parte 1
+        incidencia:
+          type: boolean
+          example: false
+        tiempo:
+          type: integer
+          example: 123
+        latitud:
+          type: number
+          example: 42
+        longitud:
+          type: number
+          example: -24
 
