@@ -10,8 +10,8 @@ import { Parte } from '../models/parte';
 export class ApiService {
 
   //API path
-  public partes_path = 'http://localhost:3000/partes';
-  public clientes_path = 'http://localhost:3000/clientes';
+  public partes_path = 'http://localhost:8090/partes';
+  public clientes_path = 'http://localhost:8090/clientes';
 
   public httpOptions = {
     headers: new HttpHeaders({
