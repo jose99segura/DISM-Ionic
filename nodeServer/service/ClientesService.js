@@ -25,7 +25,7 @@ exports.clientesGET = function(id) {
     }else{
       query = 'select * from clientes';
     }
-    
+
     // Parte de conexion con la query necesaria
     connection.query(query, function(err, rows){
       if (err) {
@@ -40,28 +40,6 @@ exports.clientesGET = function(id) {
 
   });
 }
-
-
-// DELETE CLIENTE
-exports.deleteCliente = function(clienteId) {
-  return new Promise(function(resolve, reject) {
-    // Filtrar por si pasa id o no
-    let query = `DELETE FROM clientes WHERE id='${clienteId}'`;
-    
-    // Parte de conexion con la query necesaria
-    connection.query(query, function(err, rows){
-      if (err) {
-        console.log('Error en /clientes '+err);
-        reject(err);
-      }
-      else {
-        console.log(`cliente con id '${clienteId}' ha sido eliminado`);
-        resolve(rows[0]);
-      }
-    })
-  });
-}
-
 
 // POST CLIENTE
 exports.postCliente = function(body) {
@@ -84,7 +62,6 @@ exports.postCliente = function(body) {
 
   });
 }
-
 
 // UPDATE CLIENTE
 exports.updateCliente = function(body,clienteId) {
@@ -109,3 +86,23 @@ exports.updateCliente = function(body,clienteId) {
   });
 }
 
+// DELETE CLIENTE
+exports.deleteCliente = function(clienteId) {
+  return new Promise(function(resolve, reject) {
+    // Filtrar por si pasa id o no
+    let query = `DELETE FROM clientes WHERE id='${clienteId}'`;
+
+    // Parte de conexion con la query necesaria
+    connection.query(query, function(err, rows){
+      if (err) {
+        console.log('Error en /clientes '+err);
+        reject(err);
+      }
+      else {
+        console.log(`cliente con id '${clienteId}' ha sido eliminado`);
+        resolve(rows[0]);
+      }
+    })
+
+  });
+}

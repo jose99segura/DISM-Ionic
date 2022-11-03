@@ -1,83 +1,111 @@
 'use strict';
 
+var express = require("express");
+var mysql = require('mysql');
+var app = express();
+var bp = require('body-parser');
+const cors = require('cors');
+app.use(cors());
+app.options('*', cors());
+app.use(bp.json());
+var connection = mysql.createConnection({
+ host : 'localhost',
+ user : 'usuario',
+ password : 'clave',
+ database : 'dism'
+});
 
-/**
- * Borrar cliente
- * Borra cliente por id
- *
- * parteId Long Id de cliente a eliminar
- * no response value expected for this operation
- **/
-exports.deleteParte = function(parteId) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
-}
 
-
-/**
- * Subir parte
- * get parte
- *
- * id String hacer get parte (optional)
- * returns inline_response_200
- **/
+// GET PARTE
 exports.partesGET = function(id) {
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "contador" : 0,
-  "nombre" : "nombre"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
+    // Filtrar por si pasa id o no
+    let query = '';
+    if(id){
+      query = `select * from partes where id='${id}'`;
+    }else{
+      query = 'select * from partes';
     }
+
+    // Parte de conexion con la query necesaria
+    connection.query(query, function(err, rows){
+      if (err) {
+        console.log('Error en GET /partes '+err);
+        reject(err);
+      }
+      else {
+        console.log('GET en /partes realizado');
+        resolve(rows);
+      }
+    })
+
   });
 }
 
-
-/**
- * Subir cliente
- * Crear cliente
- *
- * body Parte Crear nuevo cliente
- * returns Parte
- **/
+// POST PARTE
 exports.postParte = function(body) {
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "descripcion" : "Descripcion parte 1",
-  "fecga" : "01/11/2022",
-  "latitud" : 42,
-  "longitud" : -24,
-  "tiempo" : 123,
-  "hora" : "10:10",
-  "incidencia" : false,
-  "id" : 10
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+
+    let query = `INSERT INTO partes (fecha, hora, descripcion, incidencia, tiempo, latitud, longitud)
+                VALUES ('${body.fecha}', '${body.hora}', '${body.descripcion}', '${body.incidencia}', '${body.tiempo}', '${body.latitud}', '${body.longitud}')`;
+
+    // Parte de conexion con la query necesaria
+    connection.query(query, function(err, rows){
+      if (err) {
+        console.log('Error en POST /partes '+err);
+        reject(err);
+      }
+      else {
+        console.log(`parte con id '${body.id}' ha sido insertado`);
+        resolve(rows[0]);
+      }
+    })
+
   });
 }
 
-
-/**
- * Update cliente
- * Actualizar cliente
- *
- * body Cliente actualiza cliente existente (optional)
- * parteId Long Cliente para eliminar
- * no response value expected for this operation
- **/
+// UPDATE PARTE
 exports.updateParte = function(body,parteId) {
   return new Promise(function(resolve, reject) {
-    resolve();
+
+    let query = `UPDATE partes
+                  SET fecha = '${body.fecha}', hora= '${body.hora}', descripcion = '${body.descripcion}', incidencia = '${body.incidencia}', tiempo = '${body.tiempo}', latitud = '${body.latitud}', longitud = '${body.longitud}'
+                  WHERE id = '${parteId}'`;
+
+    // Parte de conexion con la query necesaria
+    connection.query(query, function(err, rows){
+      if (err) {
+        console.log('Error en PUT /partes '+err);
+        reject(err);
+      }
+      else {
+        console.log(`parte con id '${parteId}' ha sido modificado`);
+        resolve(rows[0]);
+      }
+    })
+
   });
 }
+
+// DELETE PARTE
+exports.deleteParte = function(parteId) {
+  return new Promise(function(resolve, reject) {
+    // Filtrar por si pasa id o no
+    let query = `DELETE FROM partes WHERE id='${parteId}'`;
+
+    // Parte de conexion con la query necesaria
+    connection.query(query, function(err, rows){
+      if (err) {
+        console.log('Error en DELETE /partes '+err);
+        reject(err);
+      }
+      else {
+        console.log(`parte con id '${parteId}' ha sido eliminado`);
+        resolve(rows[0]);
+      }
+    })
+  });
+}
+
+
 

@@ -113,7 +113,7 @@ paths:
     get:
       tags:
       - partes
-      summary: Subir parte
+      summary: Get parte
       description: get parte
       operationId: partesGET
       parameters:
@@ -142,7 +142,7 @@ paths:
     post:
       tags:
       - partes
-      summary: Subir cliente
+      summary: Subir parte
       description: Crear cliente
       operationId: postParte
       requestBody:
@@ -166,13 +166,13 @@ paths:
     put:
       tags:
       - partes
-      summary: Update cliente
-      description: Actualizar cliente
+      summary: Update parte
+      description: Actualizar parte
       operationId: updateParte
       parameters:
       - name: parteId
         in: path
-        description: Cliente para eliminar
+        description: Parte para eliminar
         required: true
         style: simple
         explode: false
@@ -180,11 +180,11 @@ paths:
           type: integer
           format: int64
       requestBody:
-        description: actualiza cliente existente
+        description: actualiza parte existente
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Cliente'
+              $ref: '#/components/schemas/Parte'
       responses:
         default:
           description: successful operation
@@ -192,13 +192,13 @@ paths:
     delete:
       tags:
       - partes
-      summary: Borrar cliente
-      description: Borra cliente por id
+      summary: Borrar parte
+      description: Borra parte por id
       operationId: deleteParte
       parameters:
       - name: parteId
         in: path
-        description: Id de cliente a eliminar
+        description: Id de parte a eliminar
         required: true
         style: simple
         explode: false
@@ -237,7 +237,6 @@ components:
           example: usuario@gmail.com
       example:
         direccion: Calle Pizarro
-        id: 10
         poblacion: Alicante
         telefono: "123456789"
         nombre: Jose
@@ -249,12 +248,12 @@ components:
         id:
           type: integer
           format: int64
-        fecga:
+        fecha:
           type: string
-          example: 01/11/2022
+          example: '2022-12-06T23:00:00.000Z'
         hora:
           type: string
-          example: 10:10
+          example: '10:10:10'
         descripcion:
           type: string
           example: Descripcion parte 1
@@ -271,14 +270,13 @@ components:
           type: number
           example: -24
       example:
+        fecha: '2022-12-06T23:00:00.000Z'
+        hora: '10:10:10'
         descripcion: Descripcion parte 1
-        fecga: 01/11/2022
+        incidencia: false
+        tiempo: 123
         latitud: 42
         longitud: -24
-        tiempo: 123
-        hora: 10:10
-        incidencia: false
-        id: 10
     inline_response_200:
       type: object
       properties:
