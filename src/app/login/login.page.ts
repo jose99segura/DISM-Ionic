@@ -7,7 +7,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { Usuario } from '../models/usuario';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -50,8 +49,6 @@ export class LoginPage implements OnInit {
     var f = this.formularioLogin.value;
 
     this.dataUsuario.forEach(user => {
-      console.log(user);
-
       if(f.nombre === user.usuario){
 
         if (f.password == user.contra) {
