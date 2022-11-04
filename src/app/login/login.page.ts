@@ -5,8 +5,10 @@ import {
   Validators,
   FormBuilder
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Usuario } from '../models/usuario';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +17,12 @@ import { Usuario } from '../models/usuario';
 })
 export class LoginPage implements OnInit {
 
-  data: Usuario;
+  dataUsuario;
   formularioLogin: FormGroup;
 
-  constructor(public fb: FormBuilder,
+  constructor(public router: Router,
+              public loginService: LoginService,
+              public fb: FormBuilder,
               public alertController: AlertController) {
                 this.formularioLogin = this.fb.group({
                   'nombre': new FormControl("",Validators.required),
@@ -27,29 +31,52 @@ export class LoginPage implements OnInit {
               }
 
   ngOnInit() {
-    var usuario = {
-      nombre: 'jose',
-      password: '1234'
-    }
-    localStorage.setItem('usuario',JSON.stringify(usuario));
+    this.getUsuarios();
   }
 
-  async ingresar(){
+  ionViewWillEnter(){
+    this.getUsuarios();
+    console.log(this.dataUsuario);
+  }
+
+  // METODOS
+  getUsuarios(){
+    this.loginService.getList().subscribe(response =>{
+      this.dataUsuario = response;
+    });
+  }
+
+  comprobarUsuario(){
     var f = this.formularioLogin.value;
 
-    var usuario = JSON.parse(localStorage.getItem('usuario'));
+    this.dataUsuario.forEach(user => {
+      console.log(user);
 
-    if(usuario.nombre == f.nombre && usuario.password == f.password){
-      console.log('Ingresado');
-    }else{
-      const alert = await this.alertController.create({
-        header: 'Datos incorrectos',
-        message: 'Los datos que ingresaste son incorrectos.',
-        buttons: ['Aceptar']
-      });
+      if(f.nombre === user.usuario){
 
-      await alert.present();
-    }
+        if (f.password == user.contra) {
+          console.log("LOGIN CORRECTO");
+          this.loginCorrecto();
+        }else{
+          // Cuando la contraseña esta mal
+          this.estaMal();
+        }
+      }
+    });
+
+  }
+
+  loginCorrecto(){
+    this.router.navigate(['./home']);
+  }
+
+  async estaMal(){
+    const alert = await this.alertController.create({
+      header: 'Contraseña incorrecta',
+      message: 'La contraseña introducida es incorrecta, inténtelo de nuevo',
+      buttons: ['Aceptar']
+    });
+    await alert.present();
   }
 
 }

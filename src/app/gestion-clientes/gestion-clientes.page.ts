@@ -17,6 +17,8 @@ export class GestionClientesPage {
 
   ionViewWillEnter(){
     this.getAllPartes();
+    console.log(this.ClienteData);
+
   }
 
   ver(item){
