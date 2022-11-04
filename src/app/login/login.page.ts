@@ -31,11 +31,14 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.getUsuarios();
+
+    var x = document.getElementById("menuBorrar");
+    x.style.display = "none";
   }
+
 
   ionViewWillEnter(){
     this.getUsuarios();
-    console.log(this.dataUsuario);
   }
 
   // METODOS
@@ -65,6 +68,8 @@ export class LoginPage implements OnInit {
 
   loginCorrecto(){
     this.router.navigate(['./home']);
+    var x = document.getElementById("menuBorrar");
+    x.style.display = "block";
   }
 
   async estaMal(){
