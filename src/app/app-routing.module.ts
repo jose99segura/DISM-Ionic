@@ -3,13 +3,17 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'listado-partes',
@@ -38,13 +42,18 @@ const routes: Routes = [
   {
     path: 'editar-cliente',
     loadChildren: () => import('./editar-cliente/editar-cliente.module').then( m => m.EditarClientePageModule)
-  },  {
+  },
+  {
     path: 'ver-partes',
     loadChildren: () => import('./ver-partes/ver-partes.module').then( m => m.VerPartesPageModule)
   },
   {
     path: 'ver-clientes',
     loadChildren: () => import('./ver-clientes/ver-clientes.module').then( m => m.VerClientesPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
 
 ];

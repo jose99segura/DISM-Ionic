@@ -4,10 +4,10 @@ info:
   description: Esto es el backend de la practica 1
   contact:
     email: jlsn5@alu.ua.es
-  version: 1.0.0
+  version: 3.0.0
 servers:
 - url: http://localhost:8090/
-  description: Servidor localhost
+  description: Servidor localhost 8090
 paths:
   /clientes:
     get:
@@ -28,16 +28,8 @@ paths:
       responses:
         "200":
           description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_200'
         "400":
           description: Invalid status value
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_400'
       x-swagger-router-controller: Clientes
     post:
       tags:
@@ -107,13 +99,13 @@ paths:
           format: int64
       responses:
         "400":
-          description: Invalid pet value
+          description: Invalid value
       x-swagger-router-controller: Clientes
   /partes:
     get:
       tags:
       - partes
-      summary: Get parte
+      summary: Subir parte
       description: get parte
       operationId: partesGET
       parameters:
@@ -128,21 +120,13 @@ paths:
       responses:
         "200":
           description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_200'
         "400":
           description: Invalid status value
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_400'
       x-swagger-router-controller: Partes
     post:
       tags:
       - partes
-      summary: Subir parte
+      summary: Subir cliente
       description: Crear cliente
       operationId: postParte
       requestBody:
@@ -166,13 +150,13 @@ paths:
     put:
       tags:
       - partes
-      summary: Update parte
-      description: Actualizar parte
+      summary: Update cliente
+      description: Actualizar cliente
       operationId: updateParte
       parameters:
       - name: parteId
         in: path
-        description: Parte para eliminar
+        description: Cliente para eliminar
         required: true
         style: simple
         explode: false
@@ -180,11 +164,11 @@ paths:
           type: integer
           format: int64
       requestBody:
-        description: actualiza parte existente
+        description: actualiza cliente existente
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Parte'
+              $ref: '#/components/schemas/Cliente'
       responses:
         default:
           description: successful operation
@@ -192,13 +176,13 @@ paths:
     delete:
       tags:
       - partes
-      summary: Borrar parte
-      description: Borra parte por id
+      summary: Borrar cliente
+      description: Borra cliente por id
       operationId: deleteParte
       parameters:
       - name: parteId
         in: path
-        description: Id de parte a eliminar
+        description: Id de cliente a eliminar
         required: true
         style: simple
         explode: false
@@ -207,8 +191,30 @@ paths:
           format: int64
       responses:
         "400":
-          description: Invalid pet value
+          description: Invalid
       x-swagger-router-controller: Partes
+  /usuarios:
+    get:
+      tags:
+      - usuarios
+      summary: Get usuario
+      description: get usuario
+      operationId: usuariosGET
+      parameters:
+      - name: id
+        in: query
+        description: hacer get usuario
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Invalid status value
+      x-swagger-router-controller: Usuarios
 components:
   schemas:
     Cliente:
@@ -217,6 +223,7 @@ components:
         id:
           type: integer
           format: int64
+          example: 10
         nombre:
           type: string
           example: Jose
@@ -237,6 +244,7 @@ components:
           example: usuario@gmail.com
       example:
         direccion: Calle Pizarro
+        id: 10
         poblacion: Alicante
         telefono: "123456789"
         nombre: Jose
@@ -248,12 +256,13 @@ components:
         id:
           type: integer
           format: int64
+          example: 10
         fecha:
           type: string
-          example: '2022-12-06T23:00:00.000Z'
+          example: 2022-12-06T23:00:00.000Z
         hora:
           type: string
-          example: '10:10:10'
+          example: 10:10:10
         descripcion:
           type: string
           example: Descripcion parte 1
@@ -270,25 +279,11 @@ components:
           type: number
           example: -24
       example:
-        fecha: '2022-12-06T23:00:00.000Z'
-        hora: '10:10:10'
         descripcion: Descripcion parte 1
-        incidencia: false
-        tiempo: 123
+        fecha: 2022-12-06T23:00:00.000Z
         latitud: 42
         longitud: -24
-    inline_response_200:
-      type: object
-      properties:
-        nombre:
-          type: string
-        contador:
-          type: integer
-      example:
-        contador: 0
-        nombre: nombre
-    inline_response_400:
-      type: object
-      properties:
-        message:
-          type: string
+        tiempo: 123
+        hora: 10:10:10
+        incidencia: false
+        id: 10

@@ -1,6 +1,6 @@
 {
   "name": "practica-1",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "Esto es el backend de la practica 1",
   "main": "index.js",
   "scripts": {
