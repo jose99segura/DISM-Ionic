@@ -8,12 +8,15 @@ import { ListadoPartesPageRoutingModule } from './listado-partes-routing.module'
 
 import { ListadoPartesPage } from './listado-partes.page';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListadoPartesPageRoutingModule
+    ListadoPartesPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [ListadoPartesPage]
 })

@@ -10,6 +10,7 @@ import { ApiService } from '../services/api.service';
 export class GestionClientesPage {
 
   ClienteData: any;
+  filterTerm: string;
 
   constructor( public apiService: ApiService, private router: Router) {
     this.ClienteData = [];

@@ -1,12 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>listadoPartes</ion-title>
+    <ion-title>Listado de partes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let item of ParteData">
+    <ion-item *ngFor="let item of ParteData | filter:filterTerm">
       <ion-label>
         <h2>{{item.fecha}}</h2>
         <p>{{item.hora}}</p>

@@ -8,12 +8,15 @@ import { GestionClientesPageRoutingModule } from './gestion-clientes-routing.mod
 
 import { GestionClientesPage } from './gestion-clientes.page';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GestionClientesPageRoutingModule
+    GestionClientesPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [GestionClientesPage]
 })
