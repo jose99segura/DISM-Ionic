@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { LoginService } from '../services/login.service';
+import { SplashScreen } from '@awesome-cordova-plugins/splash-screen';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,9 @@ export class LoginPage implements OnInit {
   dataUsuario;
   formularioLogin: FormGroup;
 
-  constructor(public router: Router,
+  constructor(
+              // private splashScreen: SplashScreen,
+              public router: Router,
               public loginService: LoginService,
               public fb: FormBuilder,
               public alertController: AlertController) {
@@ -30,6 +33,7 @@ export class LoginPage implements OnInit {
               }
 
   ngOnInit() {
+    // this.splashScreen.show();
     this.getUsuarios();
 
     var x = document.getElementById("menuBorrar");
