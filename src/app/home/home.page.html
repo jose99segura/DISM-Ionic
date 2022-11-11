@@ -14,10 +14,28 @@
   </ion-header>
 
   <div id="ion-padding">
+    <ion-grid>
 
-    <ion-button [routerLink]="['/nuevo-parte']" expand="block">Añadir Parte</ion-button>
-    <ion-button [routerLink]="['/nuevo-cliente']" expand="block">Añadir Cliente</ion-button>
-    <ion-button [routerLink]="['/login']" color="danger" expand="block">Cerrar Sesión</ion-button>
+      <ion-row>
+        <ion-col><ion-button [routerLink]="['/nuevo-parte']" expand="block">Añadir Parte</ion-button></ion-col>
+        <ion-col><ion-button [routerLink]="['/nuevo-cliente']" expand="block">Añadir Cliente</ion-button></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col><ion-col><ion-button [routerLink]="['/listado-partes']" color="success" expand="block">Gestión Partes</ion-button></ion-col></ion-col>
+        <ion-col><ion-col><ion-button [routerLink]="['/gestion-clientes']" color="success" expand="block">Gestión Clientes</ion-button></ion-col></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col><ion-button [routerLink]="['/contacto']" color="dark" expand="block">Perfil</ion-button></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col><ion-button [routerLink]="['/login']" color="danger" expand="block">Cerrar Sesión</ion-button></ion-col>
+      </ion-row>
+
+    </ion-grid>
 
   </div>
+
 </ion-content>
