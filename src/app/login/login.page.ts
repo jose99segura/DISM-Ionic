@@ -54,6 +54,7 @@ export class LoginPage implements OnInit {
 
   comprobarUsuario(){
     var f = this.formularioLogin.value;
+console.log(this.dataUsuario);
 
     this.dataUsuario.forEach(user => {
       if(f.nombre === user.usuario){
